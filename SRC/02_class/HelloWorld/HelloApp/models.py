@@ -10,4 +10,4 @@ class HelloCustomer(models.Model):
     dob = models.DateField()
 
     def __str__(self):
-        return self.full_name, self.phone, self.email
+        return self.full_name + " : " + self.phone + " : " + self.email
