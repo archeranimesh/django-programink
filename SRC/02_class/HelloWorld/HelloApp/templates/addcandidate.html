@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelloApp | Add Candidate</title>
-</head>
-
-<body>
-    <h1>Add new candidate</h1>
-    <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Add New" />
-    </form>
-</body>
-
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add new candidate</h1>
+<form method="post">{% csrf_token %}
+    {{form.as_p}}
+    <button class="btn waves-effect waves-light" type="submit" name="">Add My Profile
+        <i class="material-icons right">send</i>
+    </button>
+</form>
+{% endblock %}

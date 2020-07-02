@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelloApp | View Candidate</title>
-</head>
-
-<body>
-    <h1>View All Candidates</h1>
-    <table border="2">
-        <tr>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Date of Birth</th>
-            <th>Gender</th>
-        </tr>
-        {% for i in candidates %}
-        <tr>
-            <td>{{i.full_name }}</td>
-            <td>{{i.phone}} </td>
-            <td>{{i.email}} </td>
-            <td>{{i.dob}} </td>
-            <td>{{i.gender}} </td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h1>View All Candidates</h1>
+<table border="2" class="striped responsive-table">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Gender</th>
+    </tr>
+    {% for i in candidates %}
+    <tr>
+        <td>{{i.full_name }}</td>
+        <td>{{i.phone}} </td>
+        <td>{{i.email}} </td>
+        <td>{{i.dob}} </td>
+        <td>{{i.gender}} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
