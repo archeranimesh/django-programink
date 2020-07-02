@@ -139,3 +139,4 @@ dmypy.json
 
 # Sublime Code
 *.sublime-*
+SRC/02_class/HelloWorld/.DS_Store
