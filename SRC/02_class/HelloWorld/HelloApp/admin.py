@@ -1,8 +1,9 @@
 from django.contrib import admin
 from .models import HelloCustomer
+from import_export.admin import ImportExportModelAdmin
 
-
-class HelloCustomerAdmin(admin.ModelAdmin):
+# ImportExportModelAdmin, should be used first to avoid MRO.
+class HelloCustomerAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     # display as list
     list_display = ["full_name", "email", "phone", "dob", "gender"]
     # makes the dob and full_name field clickable.
@@ -25,10 +26,6 @@ class HelloCustomerAdmin(admin.ModelAdmin):
         (None, {"fields": ("full_name", "email", "phone", "gender")}),
         ("More", {"classes": ("collapse",), "fields": ("dob", "address", "pincode")}),
     )
-    # fieldsets = (
-    #     (None, {"fields": ("full_name", "email", "phone", "gender")}),
-    #     ("More", {"classes": ("collapse",), "fields": ("dob", "address", "pincode")}),
-    # )
 
 
 # Register your models here.
