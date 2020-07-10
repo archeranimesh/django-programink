@@ -9,7 +9,7 @@
         <th>Date of Birth</th>
         <th>Gender</th>
     </tr>
-    {% for i in candidates %}
+    {% for i in page_object %}
     <tr>
         <td>{{i.full_name }}</td>
         <td>{{i.phone}} </td>
@@ -19,4 +19,15 @@
     </tr>
     {% endfor %}
 </table>
+
+{% if page_object.has_previous %}
+<a href="?page={{ page_object.previous_page_number }}">previous</a>
+{% endif %}
+
+{{page_object.number}} of {{ page_object.paginator.num_pages }}
+
+{% if page_object.has_next %}
+<a href="?page={{ page_object.next_page_number }}">next</a>
+{% endif %}
+
 {% endblock %}
