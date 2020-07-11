@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>HelloApp</h1>
+<h1>HelloApp {{request.user.username}}</h1>
 
 <div class="row">
     <!-- Card 1 -->
