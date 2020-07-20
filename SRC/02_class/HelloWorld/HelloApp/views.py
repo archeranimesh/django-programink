@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import HelloCandidateForm, NewUserForm
 from .models import HelloCustomer
@@ -22,6 +23,7 @@ def addcandidate(request):
 
 
 # View Candidate
+@login_required
 def viewcandidates(request):
     candidates = HelloCustomer.objects.all()
     # only 2 request per page
@@ -41,13 +43,10 @@ def register(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get("username")
-            login(request, user)
+            œlogin(request, user)
             return redirect("/")
-        else:
-            for msg in form.error_messages:
-                print(form.error_messages[msg])
-            return render(request, "register.html", {"form": form})
-    form = NewUserForm
+    else:
+        form = NewUserForm()
     return render(request, "register.html", {"form": form})
 
 
